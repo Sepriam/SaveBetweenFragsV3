@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 //note to self - Context is basically just background infomation
 
-class CustomAdapter3 extends ArrayAdapter<String>{
+class CustomAdapter3 extends ArrayAdapter<Exercises>{
 
     public CustomAdapter3(Context context, /*This is the resource we're passing in*/ String[] exercises) {
 

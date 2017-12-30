@@ -18,11 +18,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btnMain;
+
+    CustomAdapter1 customAdapter1 = null;
+    CustomAdapter2 customAdapter2 = null;
+    CustomAdapter3 customAdapter3 = null;
+
 
     private static final String TAG = "MainActivity";
 
@@ -69,5 +77,37 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new tab2Fragment(), "Chest");
         adapter.addFragment(new tab3Fragment(), "Core");
         viewPager.setAdapter(adapter);
+    }
+
+    private void createExercises()
+    {
+
+        ArrayList<Exercises> exerciseList = new ArrayList<>();
+
+        Exercises _newExercise = new Exercises("Squat", false);
+        exerciseList.add(_newExercise);
+        _newExercise = new Exercises("Bar-kip", false);
+        exerciseList.add(_newExercise);
+        _newExercise = new Exercises("Pull-over", false);
+        exerciseList.add(_newExercise);
+        _newExercise = new Exercises("Push-up", false);
+        exerciseList.add(_newExercise);
+        _newExercise = new Exercises("Pull-up", false);
+        exerciseList.add(_newExercise);
+        _newExercise = new Exercises("Muscle-up", false);
+        exerciseList.add(_newExercise);
+        _newExercise = new Exercises("Deadlift", false);
+        exerciseList.add(_newExercise);
+        _newExercise = new Exercises("Weighted Pull-ups", false);
+        exerciseList.add(_newExercise);
+        _newExercise = new Exercises("Explosive Pull-ups", false);
+        exerciseList.add(_newExercise);
+
+
+        customAdapter1 = new CustomAdapter1(this, R.layout.activity_list_view_element, exerciseList);
+        ListView listView = (ListView) findViewById(R.id.listview1);
+
+        listView.setAdapter(customAdapter1);
+
     }
 }
